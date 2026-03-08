@@ -4,8 +4,8 @@ from src.exception import CustomException
 from src.logger import logging
 import pandas as pd
 
-# from src.components.data_transformation import DataTransformation
-# from src.components.data_transformation import Data_transformation_config
+from src.components.data_transformation import DataTransformation
+
 # from src.components.model_trainer import model_trainer_config
 # from src.components.model_trainer import modelTrainer
 
@@ -25,7 +25,7 @@ class DataIngestion:
     def initiate_data_ingestion(self):
         logging.info("Entered the data ingestion method")
         try:
-            df = pd.read_csv('notebooks/data/raw/online.csv')
+            df = pd.read_csv(os.path.join("notebooks","data","raw","online.csv"))
             logging.info(f"Dataset shape: {df.shape}")
             logging.info("Database read as dataframe")
 
@@ -53,7 +53,30 @@ if __name__ =="__main__":
     obj = DataIngestion()
     train_data,test_data = obj.initiate_data_ingestion()
 
-    # data_transformation = DataTransformation()
-    # train_arr,test_arr,_ = data_transformation.initiate_data_transformation(train_data,test_data)
-    # modelTrainer = modelTrainer()
-    # print( modelTrainer.initiate_model_trainer(train_arr,test_arr))
+
+    data_transformation = DataTransformation()
+
+    (
+        X_train_return,
+        X_test_return,
+        y_train_return,
+        y_test_return,
+
+        X_train_high_value,
+        X_test_high_value,
+        y_train_high_value,
+        y_test_high_value,
+
+        rfm_train_scaled,
+        rfm_test_scaled
+
+    ) = data_transformation.initiate_data_transformation(train_data, test_data)
+
+
+    print("Data Transformation Completed")
+
+    print("Return Train Shape:", X_train_return.shape)
+    print("High Value Train Shape:", X_train_high_value.shape)
+    print("Segmentation Train Shape:", rfm_train_scaled.shape)
+        # modelTrainer = modelTrainer()
+        # print( modelTrainer.initiate_model_trainer(train_arr,test_arr))
