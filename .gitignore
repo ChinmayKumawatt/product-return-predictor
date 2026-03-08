@@ -1,19 +1,13 @@
 # ==============================
-
 # Python cache files
-
 # ==============================
-
-**pycache**/
+__pycache__/
 *.py[cod]
 *$py.class
 
 # ==============================
-
 # Virtual environments
-
 # ==============================
-
 venv/
 .env/
 .venv/
@@ -21,80 +15,64 @@ env/
 ENV/
 
 # ==============================
-
 # Jupyter Notebook checkpoints
-
 # ==============================
-
 .ipynb_checkpoints/
 
 # ==============================
-
 # Data folders (ignore datasets)
-
 # ==============================
-
 data/
 datasets/
 notebooks/data/
 
-# ==============================
-
-# Artifacts (models, processed data)
-
-# ==============================
-
-artifacts/
+# ignore all csv files
+*.csv
 
 # ==============================
+# Artifacts (models + processed data)
+# ==============================
 
+# allow artifacts folder
+!artifacts/
+
+# ignore csv inside artifacts
+artifacts/*.csv
+
+# allow model files
+!artifacts/*.pkl
+
+# ==============================
 # Logs
-
 # ==============================
-
 logs/
 *.log
 
 # ==============================
-
 # System files
-
 # ==============================
-
 .DS_Store
 Thumbs.db
 
 # ==============================
-
 # IDE files
-
 # ==============================
-
 .vscode/
 .idea/
 
 # ==============================
-
 # Distribution / packaging
-
 # ==============================
-
 build/
 dist/
 *.egg-info/
 
 # ==============================
-
 # Environment variables
-
 # ==============================
-
 .env
 
 # ==============================
-
 # Allow notebooks
-
 # ==============================
-
 !notebooks/
