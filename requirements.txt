@@ -8,4 +8,5 @@ xgboost
 dill
 Flask
 streamlit
+altair==4.2.2
 # -e .
