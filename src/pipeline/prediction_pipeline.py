@@ -67,13 +67,19 @@ class PredictPipeline:
 
         try:
 
-            model = load_object(self.high_value_model_path)
+            high_value_model = load_object(self.high_value_model_path)
 
             scaler = load_object(self.rfm_scaler_path)
 
+            segmentation_model = load_object(self.segmentation_model_path)
+
             scaled_features = scaler.transform(rfm_features)
 
-            prediction = model.predict(scaled_features)
+            cluster = segmentation_model.predict(scaled_features)
+
+            rfm_features["Cluster"] = cluster
+
+            prediction = high_value_model.predict(rfm_features)
 
             return prediction
 
