@@ -1,12 +1,17 @@
-pandas
-numpy
 seaborn
 ipykernel
-scikit-learn
 catboost
-xgboost
 dill
 Flask
-streamlit
 altair==4.2.2
+streamlit==1.33.0
+pandas==2.2.2
+numpy==1.26.4
+scikit-learn==1.4.2
+xgboost==2.0.3
+altair==4.2.2
+protobuf==4.25.3
+pillow
+imghdr2
+joblib
 # -e .
