@@ -4,7 +4,7 @@ from src.exception import CustomException
 from src.logger import logging
 import pandas as pd
 
-from src.components.data_transformation import DataTransformation
+# from src.components.data_transformation import DataTransformation
 
 # from src.components.model_trainer import model_trainer_config
 # from src.components.model_trainer import modelTrainer
@@ -49,34 +49,34 @@ class DataIngestion:
             raise CustomException(e,sys)
         
 
-if __name__ =="__main__":
-    obj = DataIngestion()
-    train_data,test_data = obj.initiate_data_ingestion()
+# if __name__ =="__main__":
+#     obj = DataIngestion()
+#     train_data,test_data = obj.initiate_data_ingestion()
 
 
-    data_transformation = DataTransformation()
+#     data_transformation = DataTransformation()
 
-    (
-        X_train_return,
-        X_test_return,
-        y_train_return,
-        y_test_return,
+#     (
+#         X_train_return,
+#         X_test_return,
+#         y_train_return,
+#         y_test_return,
 
-        X_train_high_value,
-        X_test_high_value,
-        y_train_high_value,
-        y_test_high_value,
+#         X_train_high_value,
+#         X_test_high_value,
+#         y_train_high_value,
+#         y_test_high_value,
 
-        rfm_train_scaled,
-        rfm_test_scaled
+#         rfm_train_scaled,
+#         rfm_test_scaled
 
-    ) = data_transformation.initiate_data_transformation(train_data, test_data)
+#     ) = data_transformation.initiate_data_transformation(train_data, test_data)
 
 
-    print("Data Transformation Completed")
+#     print("Data Transformation Completed")
 
-    print("Return Train Shape:", X_train_return.shape)
-    print("High Value Train Shape:", X_train_high_value.shape)
-    print("Segmentation Train Shape:", rfm_train_scaled.shape)
-        # modelTrainer = modelTrainer()
-        # print( modelTrainer.initiate_model_trainer(train_arr,test_arr))
+#     print("Return Train Shape:", X_train_return.shape)
+#     print("High Value Train Shape:", X_train_high_value.shape)
+#     print("Segmentation Train Shape:", rfm_train_scaled.shape)
+#         # modelTrainer = modelTrainer()
+#         # print( modelTrainer.initiate_model_trainer(train_arr,test_arr))
