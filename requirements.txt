@@ -7,4 +7,3 @@ altair==4.2.2
 protobuf==4.25.3
 joblib
 pillow
-imghdr2
